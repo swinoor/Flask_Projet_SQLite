@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Recherche Client</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; line-height: 1.6; }
+        .resultat { background: #f4f4f4; padding: 15px; border-radius: 8px; border-left: 5px solid #007bff; margin-top: 20px; }
+        .erreur { color: red; font-weight: bold; }
+        input { padding: 8px; width: 250px; }
+        button { padding: 8px 15px; background: #007bff; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>Rechercher une fiche client</h1>
+
+    <form action="/fiche_nom" method="GET">
+        <input type="text" name="nom" placeholder="Entrez le nom du client (ex: DUPONT)..." required>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <hr>
+
+    {% if client %}
+        <div class="resultat">
+            <h2>Résultat pour : {{ client.nom }}</h2>
+            <p><strong>Prénom :</strong> {{ client.prenom }}</p>
+            <p><strong>Adresse :</strong> {{ client.adresse }}</p>
+            </div>
+    {% elif nom_recherche %}
+        <p class="erreur">Aucun client trouvé pour le nom : "{{ nom_recherche }}"</p>
+    {% endif %}
+
+    <p style="margin-top: 30px;"><a href="/">← Retour à l'accueil</a></p>
+
+</body>
+</html>
