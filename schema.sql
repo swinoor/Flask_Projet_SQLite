@@ -1,16 +1,8 @@
-DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE books (
+DROP TABLE IF EXISTS clients;
+CREATE TABLE clients (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    author TEXT NOT NULL,
-    stock INTEGER DEFAULT 1 -- Pour la gestion des stocks demandée
-);
-
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    role TEXT DEFAULT 'user' -- Pour le contrôle Admin/Utilisateur
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    nom TEXT NOT NULL,      -- Ce sera le TITRE du livre
+    prenom TEXT NOT NULL,   -- Ce sera l'AUTEUR du livre
+    adresse TEXT NOT NULL   -- Ce sera le STOCK (ex: "5 exemplaires")
 );
