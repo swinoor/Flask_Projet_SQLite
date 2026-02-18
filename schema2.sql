@@ -1,1 +1,7 @@
-
+DROP TABLE IF EXISTS bibliotheque;
+CREATE TABLE bibliotheque (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Livre TEXT NOT NULL,    
+    auteur TEXT NOT NULL   
+);
